@@ -21,24 +21,49 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
         ))
     }
 
+    /*
+      --> The above funtion for handing the done of todo.
+      --> after clicking done button it updates isDone key is to true and updates the todos[]
+
+    */
+
     const handleDelete = (id: number) => {
         setTodos(todos.filter(todo => todo.id !== id));
     }
+
+    /*
+   --> The above funtion for handing deleting todo.
+   --> after clicking delete button it removes todo and update the todos[]
+
+   */
 
     const handleEdit = (id: number, isDone: boolean) => {
         // setTodos(todos.filter(todo => todo.id !== id));
         if (!edit && !isDone)
             setedit(true);
     }
+
+    /*
+    --> The above funtion for handing edit todo.
+    --> after clicking edit button it open the input field with todo text
+ 
+    */
+
     const updateTodo = (e: React.FormEvent, id: number) => {
         e.preventDefault();
         setTodos(todos.map((todo) => (todo.id === id) ? { ...todo, todo: editvalue } : todo));
         setedit(false);
     }
 
-    const ref = useRef<HTMLInputElement>(null);
+    /*
+   --> The above funtion for handing ipdating todo item.
+   --> after completions updating todo, if user press the enter buttun.
+   --> updating todo based on id
+   */
+
+    const ref = useRef<HTMLInputElement>(null); // getting type of refernce form where we assign ref varible of tag
     useEffect(() => {
-        ref.current?.focus();
+        ref.current?.focus(); // when ever the dependency array will change, focus the input field
     }, [edit])
 
     return (
@@ -49,9 +74,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
                     todo.isDone ? <s className='todo_singText'>{todo.todo}</s> :
                         <span className='todo_singText'>{todo.todo}</span>
             }
-
-
-
+            {/* based on condition opening input field */}
             <div className="icons">
                 <span className="icon" onClick={() => handleEdit(todo.id, todo.isDone)}>
                     <AiFillEdit />
@@ -68,3 +91,6 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
 }
 
 export default SingleTodo
+
+
+// impoting icons from react-icons 
