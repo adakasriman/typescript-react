@@ -1,25 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-import TSBaics from './components/TSBaics';
+import InputField from './components/InputField';
+import TodoList from './components/TodoList';
+import { Todo } from './model'; //In this file, created a interface for todo
 
-function App() {
+
+const App: React.FC = () => {
+
+  const [todo, setTodo] = useState<string>(""); // assing string type to todo variable
+  const [todos, setTodos] = useState<Todo[]>([]); // adding Todo interface wit array 
+  const handleAdd = (e: React.FormEvent)/*React.FormEvent--> it is for form event type */ => {
+    e.preventDefault();
+    if (todo) {
+      setTodos([...todos, { id: todos.length ? todos.length + 1 : 1, todo: todo, isDone: false }]);
+      setTodo("");
+    }
+  }
+
+
   return (
     <div className="App">
-      <Tabs>
-        <TabList>
-          <Tab>Typescript baics</Tab>
-          <Tab>Title 2</Tab>
-        </TabList>
-
-        <TabPanel>
-          <TSBaics />
-        </TabPanel>
-        <TabPanel>
-          <h2>Any content 2</h2>
-        </TabPanel>
-      </Tabs>
+      <h3 className='heading'>Task</h3>
+      <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+      {/* The above commonent for add todo items */}
+      <TodoList todos={todos} setTodos={setTodos} />
+      {/* The above commonent for showing todo list */}
     </div>
   );
 }

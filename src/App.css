@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  background: rgb(45, 45, 236);
+  font-family: "Neucha", cursive;
+}
+
+.App .heading {
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  padding: 30px;
+}
+
+.App .todoList{
+  text-align: center;
+}
+
+@media (max-width:800px) {
+  .heading {
+    font-size: 19px;
+    padding: 35px;
+  }
+}

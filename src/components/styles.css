@@ -1,0 +1,103 @@
+.input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.input .input_field {
+    padding: 10px;
+    width: 60vw;
+    border-radius: 30px;
+    font-size: 20px;
+    border: none;
+    transition: inset 0 0 5px black;
+}
+
+.input .submit_btn {
+    padding: 8px;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 15px;
+    border: none;
+    background: rgb(45, 45, 236);
+    position: absolute;
+    right: 21%;
+    cursor: pointer;
+}
+
+.input .submit_btn:hover {
+    background: blue;
+}
+
+
+.todos {
+    width: 82%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.single_todo {
+    padding: 10px;
+    width: 40vw;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    margin-top: 15px;
+    background: url("https://images.unsplash.com/flagged/photo-1593005510329-8a4035a7238f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eWVsbG93JTIwY29sb3J8ZW58MHx8MHx8&w=1000&q=80");
+}
+
+.todos .single_todo .todo_singText {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    font-size: 15px;
+}
+
+.todos .single_todo .icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.todos .single_todo .icons .icon {
+    cursor: pointer;
+}
+
+.inputEdit--text {
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+/* @media (max-width:1200px) {
+    .single_todo {
+        width: 40vw;
+    }
+} */
+
+@media (max-width:700px) {
+
+    .input_field {
+        width: 95%;
+    }
+
+    .todos {
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .single_todo {
+        width: 85vw;
+        margin: 8px 0;
+
+    }
+
+}
